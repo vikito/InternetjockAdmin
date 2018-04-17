@@ -1,0 +1,47 @@
+<!-- START TOPBAR -->
+<div class='logo-area'></div>
+<div class='quick-area'>
+    <div class='pull-right quickright'>
+        <ul class="info-menu right-links list-inline list-unstyled" style="float:left;">
+            <li class="dropdown profile tab" ngbDropdown>
+                <a class="toggle cursor-pointer text-link-asub" id="dropdownBasic1" ngbDropdownToggle>
+                    <img src="../../../assets/template/data/profile/profile.jpg" alt="user-image" class="img-circle img-inline">
+                    <span class="profile-status available"></span>
+                    <span class='hidden-sm hidden-xs'>{{ user.FirstName }} {{ user.LastName }} </span> 
+                    <i class="material-icons hidden-sm hidden-xs">expand_more</i>
+                </a>
+                <ul class="profile animated fadeIn" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <li class="dropdown-item">
+                        <a class="cursor-pointer">
+                            <i class="material-icons">settings</i> Settings
+                        </a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a class="cursor-pointer">
+                            <i class="material-icons">person</i> Profile
+                        </a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a class="cursor-pointer">
+                            <i class="material-icons">help</i> Help
+                        </a>
+                    </li>
+                    <li class="last dropdown-item">
+                        <a class="cursor-pointer" (click)="logout();">
+                            <i class="material-icons">lock</i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="info-menu right-links list-inline list-unstyled" style="float:left;">
+            <li class="chat-toggle-wrapper chat-slant">
+                <a href data-toggle="chatbar" class="toggle_chat" ng-click="app.settings.chatFolded = !app.settings.chatFolded; menuChatToggle('chat',app.settings.chatFolded) ">
+                    <i class="fa fa-comments"></i>
+                    <span class="badge badge-accent">9</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- END TOPBAR -->

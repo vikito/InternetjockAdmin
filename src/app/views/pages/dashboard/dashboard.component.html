@@ -1,0 +1,53 @@
+<div class="content-wrapper" style="margin-top: 50px;">
+    <div class="col-lg-12">
+        <section class="box ">
+            <header class="panel_header">
+                <h1 class="title pull-left">{{ title }}</h1>
+                <div class="actions panel_actions pull-right">
+                    <i class="box_toggle material-icons">expand_more</i>
+                    <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
+                    <i class="box_close material-icons">close</i>
+                </div>
+            </header>
+            <div class="content-body padding-bottom-15">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <!-- Horizontal - start -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4></h4>
+                                <div ng-controller="TabsDemoCtrl">
+                                    <ngb-tabset>
+                                        <ngb-tab title="Open Issues">
+                                            <ng-template ngbTabContent>
+                                                <smart-table [list]="openIssuesList" [columns]="columnsIssues" [rowsOnPagePaginator]="rowsOnPagePaginatorIssues" [loading]="loading" [totalRows]="totalRowsIssues" (clickMethod)="clickIssues($event)" [widthDatatable]="widthDatatableIssues" [heightDatatable]="heightDatatableIssues"></smart-table>
+                                            </ng-template>
+                                        </ngb-tab>
+                                        <ngb-tab>
+                                            <ng-template ngbTabTitle>Open Orders</ng-template>
+                                            <ng-template ngbTabContent>
+                                                <smart-table [list]="openOrdersList" [columns]="columnsOrders" [rowsOnPagePaginator]="rowsOnPagePaginatorOrders" [loading]="loading" [totalRows]="totalRowsOrders" (clickMethod)="clickOrders($event)" [widthDatatable]="widthDatatableOrders" [heightDatatable]="heightDatatableOrders"></smart-table>
+                                            </ng-template>
+                                        </ngb-tab>
+                                        <ngb-tab title="Unpaid Invoices">
+                                            <ng-template ngbTabContent>
+                                                <smart-table [list]="unpaidInvoicesList" [columns]="columnsInvoices" [rowsOnPagePaginator]="rowsOnPagePaginatorInvoices" [loading]="loading" [totalRows]="totalRowsInvoices" (clickMethod)="clickInvoices($event)" [widthDatatable]="widthDatatableInvoices" [heightDatatable]="heightDatatableInvoices"></smart-table>
+                                            </ng-template>
+                                        </ngb-tab>
+                                    </ngb-tabset>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="clearfix"></div>
+                            <br>
+                        </div>
+                        <!-- Horizontal - end -->
+                        <div class="clearfix">
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

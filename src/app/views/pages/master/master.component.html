@@ -1,0 +1,23 @@
+<!-- header -->
+<!-- ngInclude: 'partials/components/topbar.html' -->
+<div data-ng-include=" 'partials/components/topbar.html' " class="page-topbar" [ngStyle]="">
+    <topbar></topbar>
+</div>
+<!-- / header -->
+
+<!-- START CONTAINER -->
+<div class="page-container row-fluid ng-scope" ui-sectionbox="" ng-controller="ModalDemoCtrl">
+    <!-- leftbar -->
+    <!-- ngIf: app.type == 'general' --><!-- ngInclude: 'partials/components/leftbar.html' -->
+    <div ng-if="app.type == 'general'" data-ng-include=" 'partials/components/leftbar.html' " class="page-sidebar expandit  ">
+        <leftbar></leftbar>
+    </div>
+    <!-- / leftbar -->
+
+    <!-- START CONTENT -->
+    <section id="main-content" class="">
+        <router-outlet></router-outlet>
+    </section>
+    <!-- END CONTENT -->
+</div>
+<!-- END CONTAINER -->

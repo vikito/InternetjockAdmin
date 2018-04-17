@@ -1,0 +1,48 @@
+<table id="datatableAngular"  class="table table-striped" [mfData]="list | dataFilter : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage">
+    <thead id="tHeadRowsMin">
+      <tr class="headerDatatable">
+        <th *ngFor="let infoJson of infoDatatableJson" [width]="infoJson.ColumnWidth">
+          <mfDefaultSorter by="{{infoJson.field}}">{{infoJson.header}}
+            <i *ngIf="infoJson.isfield ==='field'" class="fa fa-long-arrow-down" style="opacity: 0.5;"></i>
+            <i *ngIf="infoJson.isfield ==='field'" class="fa fa-long-arrow-up" style="opacity: 0.5;"></i>
+          </mfDefaultSorter>
+        </th>
+        <th *ngFor="let infoJsonAction of infoEventsRowsJson" [width]="infoJsonAction.ColumnWidth" style="text-align: center;"></th>
+      </tr>
+    </thead>
+    <div class="loading" *ngIf="loading">
+      <div class="sk-circle">
+        <div class="sk-circle1 sk-child"></div>
+        <div class="sk-circle2 sk-child"></div>
+        <div class="sk-circle3 sk-child"></div>
+        <div class="sk-circle4 sk-child"></div>
+        <div class="sk-circle5 sk-child"></div>
+        <div class="sk-circle6 sk-child"></div>
+        <div class="sk-circle7 sk-child"></div>
+        <div class="sk-circle8 sk-child"></div>
+        <div class="sk-circle9 sk-child"></div>
+        <div class="sk-circle10 sk-child"></div>
+        <div class="sk-circle11 sk-child"></div>
+        <div class="sk-circle12 sk-child"></div>
+      </div>
+    </div>
+    <tbody class="scrollbar" *ngIf="!loading" id="rowsTboddy">
+      <tr *ngFor="let item of mf.data">
+        <td *ngFor="let infoItemJson of infoDatatableJson" [width]="infoItemJson.ColumnWidth">
+            <app-format [dataField]="item[infoItemJson.field]" [columnFormat]="infoItemJson.ColumnFormat" [numDecimal]="infoItemJson.NumDecimal"></app-format>
+        </td>
+        <td style="text-align: center;" *ngFor="let infoEventJson of infoEventsRowsJson" [width]="infoEventJson.ColumnWidth">
+          <button id="linkList" type="button" class="btn btn-link" (click)="click(item,infoEventJson.action)"> {{infoEventJson.header}}</button>
+        </td>
+      </tr>
+    </tbody>
+    
+    <tfoot style="color:  black;">
+      <tr class="footerDatatable">
+        <td colspan="4" class="tdFooterDatatabe">
+          <span id="rowsOfList" *ngIf="totalRows != ''"> Showing {{rowsOnPagePaginator}} of {{totalRows}}</span>
+          <mfBootstrapPaginator (click)="pageUpdate()"></mfBootstrapPaginator>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
